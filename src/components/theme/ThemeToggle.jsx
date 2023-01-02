@@ -11,14 +11,14 @@ const Toggle = () => {
 			onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 		>
 			{theme === "dark" ? (
-				<FaSun
-					onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-					className="w-5 h-5 text-gray-900 dark:text-white text-2xl"
-				/>
-			) : (
 				<FaMoon
 					onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-					className="w-5 h-5 text-gray-900 dark:text-white text-2xl"
+					className="w-5 h-5 text-white-primary dark:text-dark-mode-primary text-2xl"
+				/>
+			) : (
+				<FaSun
+					onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+					className="w-5 h-5 text-white-primary dark:text-dark-mode-primary text-2xl"
 				/>
 			)}
 		</div>
