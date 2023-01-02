@@ -15,6 +15,7 @@ module.exports = {
 				"white-tertiary": "#E8E9EB",
 				"dark-mode-primary": "#1D1E24",
 				"dark-mode-secondary": "#23262B",
+				"dark-mode-tertiary": "#33363D",
 			},
 		},
 	},
