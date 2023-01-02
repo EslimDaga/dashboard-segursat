@@ -1,18 +1,18 @@
 const Login = () => {
 	return (
-		<div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+		<div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
 			<div
-				class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
+				className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
 				style={{ maxWidth: "1000px" }}
 			>
-				<div class="md:flex w-full">
-					<div class="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+				<div className="md:flex w-full">
+					<div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
 						<svg
 							id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641"
 							data-name="Layer 1"
 							xmlns="http://www.w3.org/2000/svg"
 							width="100%"
-							height="auto"
+							height="100%"
 							viewBox="0 0 744.84799 747.07702"
 						>
 							<path
@@ -211,49 +211,51 @@ const Login = () => {
 							/>
 						</svg>
 					</div>
-					<div class="w-full md:w-1/2 py-10 px-5 md:px-10">
-						<div class="text-center mb-10">
-							<h1 class="font-bold text-3xl text-gray-900">Iniciar Sesión</h1>
+					<div className="w-full md:w-1/2 py-10 px-5 md:px-10">
+						<div className="text-center mb-10">
+							<h1 className="font-bold text-3xl text-gray-900">
+								Iniciar Sesión
+							</h1>
 							<p>Que bueno verte otra vez. 😃</p>
 						</div>
 						<div>
-							<div class="flex -mx-3">
-								<div class="w-full px-3 mb-5">
-									<label for="" class="text-xs font-semibold px-1">
+							<div className="flex -mx-3">
+								<div className="w-full px-3 mb-5">
+									<label htmlFor="" className="text-xs font-semibold px-1">
 										Usuario o Correo Electronico
 									</label>
-									<div class="flex">
-										<div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-											<i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
+									<div className="flex">
+										<div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+											<i className="mdi mdi-email-outline text-gray-400 text-lg"></i>
 										</div>
 										<input
 											type="email"
-											class="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+											className="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
 											placeholder="johnsmith@example.com"
 										/>
 									</div>
 								</div>
 							</div>
-							<div class="flex -mx-3">
-								<div class="w-full px-3 mb-12">
-									<label for="" class="text-xs font-semibold px-1">
+							<div className="flex -mx-3">
+								<div className="w-full px-3 mb-12">
+									<label htmlFor="" className="text-xs font-semibold px-1">
 										Contraseña
 									</label>
-									<div class="flex">
-										<div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-											<i class="mdi mdi-lock-outline text-gray-400 text-lg"></i>
+									<div className="flex">
+										<div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+											<i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
 										</div>
 										<input
 											type="password"
-											class="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+											className="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
 											placeholder="************"
 										/>
 									</div>
 								</div>
 							</div>
-							<div class="flex -mx-3">
-								<div class="w-full px-3 mb-5">
-									<button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+							<div className="flex -mx-3">
+								<div className="w-full px-3 mb-5">
+									<button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
 										Iniciar Sesión
 									</button>
 								</div>
