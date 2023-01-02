@@ -1,17 +1,15 @@
+import { FaLock, FaUserAlt } from "react-icons/fa";
 import Toggle from "../../components/theme/ThemeToggle";
 
 const Login = () => {
 	return (
-		<div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
-			<div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 dark:bg-dark-mode-primary bg-white rounded-md">
+		<div className="min-w-screen min-h-screen bg-white-primary dark:bg-dark-mode-primary flex items-center justify-center px-5 py-5">
+			<div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 dark:bg-white-primary bg-dark-mode-primary rounded-md">
 				<Toggle />
 			</div>
-			<div
-				className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
-				style={{ maxWidth: "1000px" }}
-			>
+			<div className="bg-white-secondary dark:bg-dark-mode-secondary rounded-3xl shadow-xl w-full overflow-hidden max-w-6xl">
 				<div className="md:flex w-full">
-					<div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+					<div className="hidden md:block w-1/2 bg-segursat-primary py-10 px-10">
 						<svg
 							id="a87032b8-5b37-4b7e-a4d9-4dbfbe394641"
 							data-name="Layer 1"
@@ -68,7 +66,7 @@ const Login = () => {
 								cx="364.43401"
 								cy="261.50202"
 								r="24.45"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<path
 								id="bbe451c3-febc-41ba-8083-4c8307a2e73e"
@@ -92,7 +90,7 @@ const Login = () => {
 								cx="225.46401"
 								cy="427.41999"
 								r="6.902"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<rect
 								id="ff33d889-4c74-4b91-85ef-b4882cc8fe76"
@@ -109,12 +107,12 @@ const Login = () => {
 								cx="225.46401"
 								cy="496.43702"
 								r="6.902"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<path
 								d="M660.69043,671.17188H591.62207a4.50493,4.50493,0,0,1-4.5-4.5v-24.208a4.50492,4.50492,0,0,1,4.5-4.5h69.06836a4.50491,4.50491,0,0,1,4.5,4.5v24.208A4.50492,4.50492,0,0,1,660.69043,671.17188Z"
 								transform="translate(-227.576 -76.46149)"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<circle
 								id="e12ee00d-aa4a-4413-a013-11d20b7f97f7"
@@ -122,7 +120,7 @@ const Login = () => {
 								cx="247.97799"
 								cy="427.41999"
 								r="6.902"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<circle
 								id="f58f497e-6949-45c8-be5f-eee2aa0f6586"
@@ -130,7 +128,7 @@ const Login = () => {
 								cx="270.492"
 								cy="427.41999"
 								r="6.902"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<circle
 								id="b4d4939a-c6e6-4f4d-ba6c-e8b05485017d"
@@ -138,7 +136,7 @@ const Login = () => {
 								cx="247.97799"
 								cy="496.43702"
 								r="6.902"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<circle
 								id="aff120b1-519b-4e96-ac87-836aa55663de"
@@ -146,7 +144,7 @@ const Login = () => {
 								cx="270.492"
 								cy="496.43702"
 								r="6.902"
-								fill="#6c63ff"
+								fill="#181B32"
 							/>
 							<path
 								id="f1094013-1297-477a-ac57-08eac07c4bd5"
@@ -216,51 +214,52 @@ const Login = () => {
 							/>
 						</svg>
 					</div>
-					<div className="w-full md:w-1/2 py-10 px-5 md:px-10">
-						<div className="text-center mb-10">
-							<h1 className="font-bold text-3xl text-gray-900">
-								Iniciar Sesión
+					<div className="w-full flex flex-col justify-center md:w-1/2 py-8 px-5 md:px-10">
+						<div className="mb-10">
+							<h1 className="font-bold text-3xl text-dark-mode-primary dark:text-white-primary">
+								Bienvenido de Vuelta
 							</h1>
-							<p>Que bueno verte otra vez. 😃</p>
+							<p className="font-bold text-2xl text-gray-400">
+								Que bueno verte otra vez 😃
+							</p>
 						</div>
 						<div>
 							<div className="flex -mx-3">
-								<div className="w-full px-3 mb-5">
-									<label htmlFor="" className="text-xs font-semibold px-1">
+								<div className="w-full mb-5">
+									<label
+										htmlFor="username"
+										className="text-base font-bold px-1 text-dark-mode-primary dark:text-white-primary"
+									>
 										Usuario o Correo Electronico
 									</label>
-									<div className="flex">
-										<div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-											<i className="mdi mdi-email-outline text-gray-400 text-lg"></i>
-										</div>
+									<div className="flex pt-2">
 										<input
+											id="username"
 											type="email"
-											className="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-											placeholder="johnsmith@example.com"
+											className="w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary"
 										/>
 									</div>
 								</div>
 							</div>
 							<div className="flex -mx-3">
-								<div className="w-full px-3 mb-12">
-									<label htmlFor="" className="text-xs font-semibold px-1">
+								<div className="w-full mb-10">
+									<label
+										htmlFor=""
+										className="text-base font-bold px-1 text-dark-mode-primary dark:text-white-primary"
+									>
 										Contraseña
 									</label>
-									<div className="flex">
-										<div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-											<i className="mdi mdi-lock-outline text-gray-400 text-lg"></i>
-										</div>
+									<div className="flex pt-2">
 										<input
 											type="password"
-											className="w-full -ml-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
-											placeholder="************"
+											className="w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary"
 										/>
 									</div>
 								</div>
 							</div>
 							<div className="flex -mx-3">
-								<div className="w-full px-3 mb-5">
-									<button className="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+								<div className="w-full">
+									<button className="block w-full h-16 bg-segursat-primary hover:bg-segursat-primary-hover focus:bg-segursat-primary-hover text-white rounded-xl py-3 font-bold">
 										Iniciar Sesión
 									</button>
 								</div>
