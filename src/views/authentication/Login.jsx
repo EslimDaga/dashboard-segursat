@@ -1,6 +1,11 @@
+import Toggle from "../../components/theme/ThemeToggle";
+
 const Login = () => {
 	return (
 		<div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+			<div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 dark:bg-dark-mode-primary bg-white rounded-md">
+				<Toggle />
+			</div>
 			<div
 				className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
 				style={{ maxWidth: "1000px" }}
