@@ -2,16 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./views/authentication/Login";
 import "./assets/css/main.css";
 
 const router = createBrowserRouter([
 	{
-		path: "/",
-		element: <div>Hello world!</div>,
-	},
-	{
 		path: "login",
-		element: <div>Login</div>,
+		element: <Login />,
 	},
 ]);
 
