@@ -1,7 +1,22 @@
-import { FaLock, FaUserAlt } from "react-icons/fa";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import Toggle from "../../components/theme/ThemeToggle";
 
 const Login = () => {
+	const formik = useFormik({
+		initialValues: {
+			username: "",
+			password: "",
+		},
+		validationSchema: Yup.object({
+			username: Yup.string().required("Campo requerido"),
+			password: Yup.string().required("Campo requerido"),
+		}),
+		onSubmit: async values => {
+			console.log(values);
+		},
+	});
+
 	return (
 		<div className="min-w-screen min-h-screen bg-white-primary dark:bg-dark-mode-primary flex items-center justify-center px-5 py-5">
 			<div className="absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6 dark:bg-white-primary bg-dark-mode-primary rounded-md">
@@ -223,7 +238,7 @@ const Login = () => {
 								Que bueno verte otra vez 😃
 							</p>
 						</div>
-						<div>
+						<form onSubmit={formik.handleSubmit}>
 							<div className="flex -mx-3">
 								<div className="w-full mb-5">
 									<label
@@ -232,39 +247,74 @@ const Login = () => {
 									>
 										Usuario o Correo Electronico
 									</label>
-									<div className="flex pt-2">
+									<div className="flex flex-col gap-3 pt-2">
 										<input
 											id="username"
-											type="email"
-											className="w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary"
+											type="text"
+											onChange={formik.handleChange}
+											onBlur={formik.handleBlur}
+											value={formik.values.username}
+											className={
+												"w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary " +
+												(formik.touched.username &&
+													formik.errors.username &&
+													"border-red-500 focus:border-red-500 dark:border-red-500 dark:focus:border-red-500")
+											}
 										/>
+										{formik.touched.username && formik.errors.username ? (
+											<span className="text-sm font-bold text-red-500">
+												{formik.errors.username}
+											</span>
+										) : null}
 									</div>
 								</div>
 							</div>
 							<div className="flex -mx-3">
 								<div className="w-full mb-10">
 									<label
-										htmlFor=""
+										htmlFor="password"
 										className="text-base font-bold px-1 text-dark-mode-primary dark:text-white-primary"
 									>
 										Contraseña
 									</label>
-									<div className="flex pt-2">
+									<div className="flex flex-col gap-3 pt-2">
 										<input
+											id="password"
 											type="password"
-											className="w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary"
+											onChange={formik.handleChange}
+											onBlur={formik.handleBlur}
+											value={formik.values.password}
+											className={
+												"w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary " +
+												(formik.touched.password &&
+													formik.errors.password &&
+													"border-red-500 focus:border-red-500 dark:border-red-500 dark:focus:border-red-500")
+											}
 										/>
+										{formik.touched.password && formik.errors.password ? (
+											<span className="text-sm font-bold text-red-500">
+												{formik.errors.password}
+											</span>
+										) : null}
 									</div>
 								</div>
 							</div>
 							<div className="flex -mx-3">
 								<div className="w-full">
-									<button className="block w-full h-16 bg-segursat-primary hover:bg-segursat-primary-hover focus:bg-segursat-primary-hover text-white rounded-xl py-3 font-bold">
+									<button
+										type="submit"
+										className={
+											"block w-full h-16 bg-segursat-primary hover:bg-segursat-primary-hover focus:bg-segursat-primary-hover text-white rounded-xl py-3 font-bold " +
+											(formik.errors.username &&
+												formik.errors.password &&
+												"opacity-50 cursor-not-allowed hover:bg-segursat-primary focus:bg-segursat-primary")
+										}
+									>
 										Iniciar Sesión
 									</button>
 								</div>
 							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
