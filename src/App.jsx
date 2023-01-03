@@ -13,10 +13,10 @@ const navigation = [
 		accessBy: "non-authenticated",
 	},
 	{
-		id: 1,
+		id: 2,
 		component: <Map />,
 		href: "/map",
-		accessBy: "non-authenticated",
+		accessBy: "authenticated",
 	},
 ];
 
