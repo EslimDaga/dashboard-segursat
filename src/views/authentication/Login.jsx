@@ -276,6 +276,7 @@ const Login = () => {
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
 											value={formik.values.username}
+											autoComplete="username"
 											className={
 												"w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary " +
 												(formik.touched.username &&
@@ -306,6 +307,7 @@ const Login = () => {
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
 											value={formik.values.password}
+											autoComplete="current-password"
 											className={
 												"w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary " +
 												(formik.touched.password &&
@@ -341,10 +343,40 @@ const Login = () => {
 											"block w-full h-16 bg-segursat-primary hover:bg-segursat-primary-hover focus:bg-segursat-primary-hover text-white rounded-xl py-3 font-bold " +
 											(formik.errors.username &&
 												formik.errors.password &&
-												"opacity-50 cursor-not-allowed hover:bg-segursat-primary focus:bg-segursat-primary")
+												" opacity-50 cursor-not-allowed hover:bg-segursat-primary focus:bg-segursat-primary") +
+											(formik.isSubmitting &&
+												" opacity-50 cursor-not-allowed hover:bg-segursat-primary focus:bg-segursat-primary")
+										}
+										disabled={
+											(formik.errors.username && formik.errors.password) ||
+											formik.isSubmitting
 										}
 									>
-										Iniciar Sesión
+										<div className="inline-flex items-center">
+											{formik.isSubmitting && (
+												<svg
+													className="animate-spin -ml-1 mr-3 h-4 w-4 text-white"
+													xmlns="http://www.w3.org/2000/svg"
+													fill="none"
+													viewBox="0 0 24 24"
+												>
+													<circle
+														className="opacity-25"
+														cx="12"
+														cy="12"
+														r="10"
+														stroke="currentColor"
+														strokeWidth="4"
+													></circle>
+													<path
+														className="opacity-75"
+														fill="currentColor"
+														d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+													></path>
+												</svg>
+											)}{" "}
+											Iniciar sesión
+										</div>
 									</button>
 								</div>
 							</div>
