@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Toggle from "../../components/theme/ThemeToggle";
+import AuthContext from "../../context/auth/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
+	const { login } = useContext(AuthContext);
+
 	const formik = useFormik({
 		initialValues: {
 			username: "",
@@ -13,7 +18,17 @@ const Login = () => {
 			password: Yup.string().required("Campo requerido"),
 		}),
 		onSubmit: async values => {
-			console.log(values);
+			const { username, password } = values;
+
+			let payload = {
+				username,
+				password,
+			};
+			try {
+				await login(payload);
+			} catch (error) {
+				toast.error(error.response.data.detail);
+			}
 		},
 	});
 
@@ -318,6 +333,33 @@ const Login = () => {
 					</div>
 				</div>
 			</div>
+			<Toaster
+				toastOptions={{
+					className: "text-base font-bold",
+					error: {
+						icon: "😕",
+						iconTheme: {
+							primary: "white",
+							secondary: "#E6215D",
+						},
+						style: {
+							background: "#E6215D",
+							color: "#FFFFFF",
+						},
+					},
+					success: {
+						icon: "😎",
+						iconTheme: {
+							primary: "white",
+							secondary: "#00ab55",
+						},
+						style: {
+							background: "#00ab55",
+							color: "#FFFFFF",
+						},
+					},
+				}}
+			/>
 		</div>
 	);
 };
