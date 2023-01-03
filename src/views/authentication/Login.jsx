@@ -1,12 +1,19 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Toggle from "../../components/theme/ThemeToggle";
 import AuthContext from "../../context/auth/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
 	const { login } = useContext(AuthContext);
+
+	const [passwordShow, setPasswordShow] = useState(false);
+
+	const togglePasswordShow = () => {
+		setPasswordShow(passwordShow ? false : true);
+	};
 
 	const formik = useFormik({
 		initialValues: {
@@ -285,7 +292,7 @@ const Login = () => {
 								</div>
 							</div>
 							<div className="flex -mx-3">
-								<div className="w-full mb-10">
+								<div className="relative w-full mb-10">
 									<label
 										htmlFor="password"
 										className="text-base font-bold px-1 text-dark-mode-primary dark:text-white-primary"
@@ -295,7 +302,7 @@ const Login = () => {
 									<div className="flex flex-col gap-3 pt-2">
 										<input
 											id="password"
-											type="password"
+											type={passwordShow ? "text" : "password"}
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
 											value={formik.values.password}
@@ -306,6 +313,18 @@ const Login = () => {
 													"border-red-500 focus:border-red-500 dark:border-red-500 dark:focus:border-red-500")
 											}
 										/>
+										{formik.values.password.length > 0 && (
+											<div
+												onClick={togglePasswordShow}
+												className="absolute right-0 top-[88px] cursor-pointer"
+											>
+												{passwordShow ? (
+													<FaEye className="h-5 w-5 text-dark-500 dark:text-gray-100 float-right relative bottom-[38px] right-4" />
+												) : (
+													<FaEyeSlash className="h-5 w-5 text-dark-500 dark:text-gray-100 float-right relative bottom-[38px] right-4" />
+												)}
+											</div>
+										)}
 										{formik.touched.password && formik.errors.password ? (
 											<span className="text-sm font-bold text-red-500">
 												{formik.errors.password}
