@@ -276,7 +276,7 @@ const Login = () => {
 											onChange={formik.handleChange}
 											onBlur={formik.handleBlur}
 											value={formik.values.username}
-											autoComplete="username"
+											autoComplete="off"
 											className={
 												"w-full h-16 pl-4 pr-3 py-2 font-bold text-base text-dark-mode-primary dark:text-white-primary autofill:text-dark-mode-primary autofill:dark:text-white-primary rounded-xl border-2 border-white-tertiary dark:border-dark-mode-tertiary outline-none focus:border-segursat-primary focus:dark:border-segursat-primary bg-white-primary dark:bg-dark-mode-primary " +
 												(formik.touched.username &&
