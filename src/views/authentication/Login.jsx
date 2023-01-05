@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -40,7 +40,7 @@ const Login = () => {
 	});
 
 	return (
-		<>
+		<HelmetProvider>
 			<Helmet>
 				<title>Iniciar Sesión - Segursat</title>
 			</Helmet>
@@ -49,7 +49,7 @@ const Login = () => {
 				passwordShow={passwordShow}
 				togglePasswordShow={togglePasswordShow}
 			/>
-		</>
+		</HelmetProvider>
 	);
 };
 
