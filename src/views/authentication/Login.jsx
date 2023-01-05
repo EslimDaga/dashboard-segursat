@@ -1,10 +1,9 @@
+import { Helmet } from "react-helmet";
 import { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Toggle from "../../components/theme/ThemeToggle";
 import AuthContext from "../../context/auth/AuthProvider";
-import toast, { Toaster } from "react-hot-toast";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
 import AuthForm from "../../components/auth/AuthForm";
 
 const Login = () => {
@@ -41,11 +40,16 @@ const Login = () => {
 	});
 
 	return (
-		<AuthForm
-			formik={formik}
-			passwordShow={passwordShow}
-			togglePasswordShow={togglePasswordShow}
-		/>
+		<>
+			<Helmet>
+				<title>Iniciar Sesión - Segursat</title>
+			</Helmet>
+			<AuthForm
+				formik={formik}
+				passwordShow={passwordShow}
+				togglePasswordShow={togglePasswordShow}
+			/>
+		</>
 	);
 };
 
