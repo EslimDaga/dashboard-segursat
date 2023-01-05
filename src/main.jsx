@@ -6,13 +6,16 @@ import { ThemeProvider } from "./context/theme/ThemeContext";
 import { BrowserRouter } from "react-router-dom";
 import { AuthContextProvider } from "./context/auth/AuthProvider";
 import "./assets/css/main.css";
+import Layout from "./template/Layout";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<ThemeProvider>
 			<BrowserRouter>
 				<AuthContextProvider>
-					<App />
+					<Layout>
+						<App />
+					</Layout>
 				</AuthContextProvider>
 			</BrowserRouter>
 		</ThemeProvider>
