@@ -2,8 +2,11 @@ import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import AuthContext from "./context/auth/AuthProvider";
+import Accounts from "./views/accounts/Accounts";
 import Login from "./views/authentication/Login";
 import Map from "./views/map/Map";
+import Units from "./views/units/Units";
+import Users from "./views/users/Users";
 
 const navigation = [
 	{
@@ -16,6 +19,24 @@ const navigation = [
 		id: 2,
 		component: <Map />,
 		href: "/map",
+		accessBy: "authenticated",
+	},
+	{
+		id: 3,
+		component: <Accounts />,
+		href: "/accounts",
+		accessBy: "authenticated",
+	},
+	{
+		id: 4,
+		component: <Users />,
+		href: "/users",
+		accessBy: "authenticated",
+	},
+	{
+		id: 5,
+		component: <Units />,
+		href: "/units",
 		accessBy: "authenticated",
 	},
 ];
