@@ -13,6 +13,7 @@ import {
 	UsersIcon,
 } from "@heroicons/react/24/solid";
 import LogoMobile from "../../assets/images/app/icon-orange-segursat.png";
+import LogoDark from "../../assets/images/app/logo-orange.png";
 import LogoLight from "../../assets/images/app/logo.png";
 
 const Header = () => {
@@ -34,7 +35,7 @@ const Header = () => {
 							<span className="sr-only">Segursat SAC</span>
 							<img
 								className="h-6 w-auto sm:h-8"
-								src={LogoLight}
+								src={theme === "dark" ? LogoDark : LogoLight}
 								alt="logo-segursat"
 							/>
 						</a>
