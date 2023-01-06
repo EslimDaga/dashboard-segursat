@@ -1,114 +1,29 @@
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
+import { navigation } from "../../routes/routes";
+import { Link, NavLink } from "react-router-dom";
 import {
-	ArrowPathIcon,
-	Bars3Icon,
-	BookmarkSquareIcon,
-	CalendarIcon,
-	ChartBarIcon,
-	CursorArrowRaysIcon,
-	LifebuoyIcon,
-	PhoneIcon,
-	PlayIcon,
-	ShieldCheckIcon,
-	Squares2X2Icon,
+	UserCircleIcon,
+	UserIcon,
 	XMarkIcon,
-} from "@heroicons/react/24/outline";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
-const solutions = [
-	{
-		name: "Analytics",
-		description:
-			"Get a better understanding of where your traffic is coming from.",
-		href: "#",
-		icon: ChartBarIcon,
-	},
-	{
-		name: "Engagement",
-		description: "Speak directly to your customers in a more meaningful way.",
-		href: "#",
-		icon: CursorArrowRaysIcon,
-	},
-	{
-		name: "Security",
-		description: "Your customers' data will be safe and secure.",
-		href: "#",
-		icon: ShieldCheckIcon,
-	},
-	{
-		name: "Integrations",
-		description: "Connect with third-party tools that you're already using.",
-		href: "#",
-		icon: Squares2X2Icon,
-	},
-	{
-		name: "Automations",
-		description:
-			"Build strategic funnels that will drive your customers to convert",
-		href: "#",
-		icon: ArrowPathIcon,
-	},
-];
-const callsToAction = [
-	{ name: "Watch Demo", href: "#", icon: PlayIcon },
-	{ name: "Contact Sales", href: "#", icon: PhoneIcon },
-];
-const resources = [
-	{
-		name: "Help Center",
-		description:
-			"Get all of your questions answered in our forums or contact support.",
-		href: "#",
-		icon: LifebuoyIcon,
-	},
-	{
-		name: "Guides",
-		description:
-			"Learn how to maximize our platform to get the most out of it.",
-		href: "#",
-		icon: BookmarkSquareIcon,
-	},
-	{
-		name: "Events",
-		description:
-			"See what meet-ups and other events we might be planning near you.",
-		href: "#",
-		icon: CalendarIcon,
-	},
-	{
-		name: "Security",
-		description: "Understand how we take your privacy seriously.",
-		href: "#",
-		icon: ShieldCheckIcon,
-	},
-];
-const recentPosts = [
-	{ id: 1, name: "Boost your conversion rate", href: "#" },
-	{
-		id: 2,
-		name: "How to use search engine optimization to drive traffic to your site",
-		href: "#",
-	},
-	{ id: 3, name: "Improve your customer experience", href: "#" },
-];
-
-function classNames(...classes) {
-	return classes.filter(Boolean).join(" ");
-}
+	Bars3Icon,
+	ArrowLeftOnRectangleIcon,
+} from "@heroicons/react/24/solid";
+import LogoMobile from "../../assets/images/app/icon-orange-segursat.png";
+import LogoLight from "../../assets/images/app/logo.png";
 
 const Header = () => {
 	return (
-		<Popover className="relative bg-white">
-			<div className="mx-auto max-w-7xl px-6">
-				<div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+		<Popover className="relative bg-white-primary">
+			<div className="mx-auto w-full px-6 shadow-xl">
+				<div className="flex items-center justify-between border-gray-100 py-4 md:justify-between md:space-x-10">
 					<div className="flex justify-start lg:w-0 lg:flex-1">
 						<a href="#">
-							<span className="sr-only">Your Company</span>
+							<span className="sr-only">Segursat SAC</span>
 							<img
-								className="h-8 w-auto sm:h-10"
-								src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-								alt=""
+								className="h-6 w-auto sm:h-8"
+								src={LogoLight}
+								alt="logo-segursat"
 							/>
 						</a>
 					</div>
@@ -118,23 +33,77 @@ const Header = () => {
 							<Bars3Icon className="h-6 w-6" aria-hidden="true" />
 						</Popover.Button>
 					</div>
-					<Popover.Group as="nav" className="hidden space-x-10 md:flex">
-						<a
-							href="#"
-							className="text-base font-medium text-gray-500 hover:text-gray-900"
-						>
-							Pricing
-						</a>
-						<a
-							href="#"
-							className="text-base font-medium text-gray-500 hover:text-gray-900"
-						>
-							Docs
-						</a>
+					<Popover.Group
+						as="nav"
+						className="hidden space-x-6 md:flex md:items-center"
+					>
+						{navigation.map(
+							item =>
+								item.accessBy === "authenticated" && (
+									<NavLink
+										to={item.href}
+										key={item.id}
+										className={({ isActive }) =>
+											isActive
+												? "flex items-center text-base font-bold text-white-primary hover:text-white-tertiary cursor-pointer bg-segursat-primary px-3 py-3 rounded-lg"
+												: "flex items-center text-base font-bold text-dark-mode-primary hover:text-dark-mode-tertiary cursor-pointer"
+										}
+									>
+										{item.icon}
+										<h3 className="mt-[1px]">{item.name}</h3>
+									</NavLink>
+								)
+						)}
+						<Popover className="flex items-center">
+							<>
+								<Popover.Button className="focus:outline-none">
+									<UserCircleIcon className="h-10 w-10 text-dark-mode-primary hover:text-dark-mode-tertiary" />
+								</Popover.Button>
+								<Transition
+									as={Fragment}
+									enter="transition ease-out duration-200"
+									enterFrom="opacity-0 translate-y-1"
+									enterTo="opacity-100 translate-y-0"
+									leave="transition ease-in duration-150"
+									leaveFrom="opacity-100 translate-y-0"
+									leaveTo="opacity-0 translate-y-1"
+								>
+									<Popover.Panel className="absolute z-10 w-72 px-6 mt-12 right-0 top-5">
+										<div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+											<div className="relative grid gap-1 bg-white-primary">
+												<Link
+													to="/profile"
+													className="-m-0 w-full flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+												>
+													<div className="p-2 mr-3">
+														<UserIcon className="h-6 w-6 text-dark-mode-primary" />
+													</div>
+													<p className="text-base font-bold text-gray-900">
+														Mi perfil
+													</p>
+												</Link>
+												<a
+													onClick={() => {
+														console.log("logout");
+													}}
+													className="-m-0 w-full flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
+												>
+													<div className="p-2 mr-3">
+														<ArrowLeftOnRectangleIcon className="h-6 w-6 text-dark-mode-primary" />
+													</div>
+													<p className="text-base font-bold text-gray-900">
+														Cerrar Sesión
+													</p>
+												</a>
+											</div>
+										</div>
+									</Popover.Panel>
+								</Transition>
+							</>
+						</Popover>
 					</Popover.Group>
 				</div>
 			</div>
-
 			<Transition
 				as={Fragment}
 				enter="duration-200 ease-out"
@@ -149,21 +118,40 @@ const Header = () => {
 					className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
 				>
 					<div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-						<div className="space-y-6 py-6 px-5">
-							<div className="grid grid-cols-2 gap-y-4 gap-x-8">
-								<a
-									href="#"
-									className="text-base font-medium text-gray-900 hover:text-gray-700"
-								>
-									Pricing
-								</a>
-
-								<a
-									href="#"
-									className="text-base font-medium text-gray-900 hover:text-gray-700"
-								>
-									Docs
-								</a>
+						<div className="px-5 pt-5 pb-6">
+							<div className="flex items-center justify-between">
+								<div>
+									<img
+										className="h-8 w-auto"
+										src={LogoMobile}
+										alt="logo-segursat"
+									/>
+								</div>
+								<div className="-mr-2">
+									<Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-0 focus:ring-inset">
+										<span className="sr-only">Close menu</span>
+										<XMarkIcon className="h-6 w-6" aria-hidden="true" />
+									</Popover.Button>
+								</div>
+							</div>
+							<div className="mt-6">
+								<nav className="grid gap-y-8">
+									{navigation.map(
+										item =>
+											item.accessBy === "authenticated" && (
+												<NavLink
+													key={item.id}
+													to={item.href}
+													className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
+												>
+													{item.icon}
+													<span className="ml-3 text-base font-medium text-gray-900">
+														{item.name}
+													</span>
+												</NavLink>
+											)
+									)}
+								</nav>
 							</div>
 						</div>
 					</div>
