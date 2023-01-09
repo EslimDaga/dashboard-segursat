@@ -12,18 +12,24 @@ import {
 	MoonIcon,
 	UsersIcon,
 } from "@heroicons/react/24/solid";
+import AuthContext from "../../context/auth/AuthProvider";
 import LogoMobile from "../../assets/images/app/icon-orange-segursat.png";
 import LogoDark from "../../assets/images/app/logo-orange.png";
 import LogoLight from "../../assets/images/app/logo.png";
 
 const Header = () => {
 	const { theme, setTheme } = useContext(ThemeContext);
+	const { logout } = useContext(AuthContext);
 
 	const [enabled, setEnabled] = useState(theme === "dark" ? true : false);
 
 	const handleChange = () => {
 		setEnabled(!enabled);
 		setTheme(theme === "dark" ? "light" : "dark");
+	};
+
+	const handleLogout = () => {
+		logout();
 	};
 
 	return (
@@ -96,9 +102,7 @@ const Header = () => {
 													</p>
 												</Link>
 												<a
-													onClick={() => {
-														console.log("logout");
-													}}
+													onClick={handleLogout}
 													className="-m-0 w-full flex items-center p-2 transition duration-150 ease-in-out hover:bg-white-tertiary dark:hover:bg-dark-mode-tertiary focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
 												>
 													<div className="p-2 mr-3">
@@ -108,12 +112,7 @@ const Header = () => {
 														Cerrar Sesión
 													</p>
 												</a>
-												<a
-													onClick={() => {
-														console.log("logout");
-													}}
-													className="-m-0 w-full flex items-center justify-between p-2 transition duration-150 ease-in-out hover:bg-white-tertiary dark:hover:bg-dark-mode-tertiary focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer"
-												>
+												<a className="-m-0 w-full flex items-center justify-between p-2 transition duration-150 ease-in-out hover:bg-white-tertiary dark:hover:bg-dark-mode-tertiary focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 cursor-pointer">
 													<div
 														className="flex items-center"
 														onClick={() => handleChange()}
