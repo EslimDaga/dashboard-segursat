@@ -8,8 +8,14 @@ const Layout = ({ children }) => {
 
 	return (
 		<>
-			{currentPath === "/login" ? null : <Header />}
-			{children}
+			{currentPath === "/login" ? (
+				children
+			) : (
+				<main className="bg-white-secondary dark:bg-dark-mode-secondary h-screen flex flex-col">
+					<Header />
+					{children}
+				</main>
+			)}
 		</>
 	);
 };
