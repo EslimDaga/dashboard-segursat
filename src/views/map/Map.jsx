@@ -1,5 +1,14 @@
+import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const Map = () => {
-	return <div>Map</div>;
+	return (
+		<HelmetProvider>
+			<Helmet>
+				<title>Mapa - Segursat</title>
+			</Helmet>
+			<div>Hello World</div>
+		</HelmetProvider>
+	);
 };
 
 export default Map;
