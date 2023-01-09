@@ -4,7 +4,7 @@ import Map from "../views/map/Map";
 import Units from "../views/units/Units";
 import Users from "../views/users/Users";
 import {
-	IdentificationIcon,
+	CheckBadgeIcon,
 	MapIcon,
 	TruckIcon,
 	UsersIcon,
@@ -31,7 +31,7 @@ export const navigation = [
 		href: "/accounts",
 		accessBy: "authenticated",
 		name: "Cuentas",
-		icon: <IdentificationIcon className="w-5 h-5 mr-1" />,
+		icon: <CheckBadgeIcon className="w-5 h-5 mr-1" />,
 	},
 	{
 		id: 4,
